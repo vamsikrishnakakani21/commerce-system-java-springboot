@@ -1,15 +1,15 @@
 package com.commercesystem.order.service;
 
 import com.commercesystem.common.exception.ResourceNotFoundException;
+import com.commercesystem.notification.client.NotificationClient;
 import com.commercesystem.notification.entity.NotificationStatus;
-import com.commercesystem.notification.service.NotificationService;
 import com.commercesystem.order.dto.CreateOrderRequest;
 import com.commercesystem.order.dto.CreateOrderResponse;
 import com.commercesystem.order.entity.Order;
 import com.commercesystem.order.entity.OrderStatus;
 import com.commercesystem.order.repository.OrderRepository;
+import com.commercesystem.payment.client.PaymentClient;
 import com.commercesystem.payment.entity.PaymentStatus;
-import com.commercesystem.payment.service.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,9 +22,9 @@ public class OrderServiceImpl
 
     private final OrderRepository orderRepository;
 
-    private final PaymentService paymentService;
+    private final PaymentClient paymentClient;
 
-    private final NotificationService notificationService;
+    private final NotificationClient notificationClient;
 
     @Override
     public CreateOrderResponse createOrder(
@@ -41,7 +41,7 @@ public class OrderServiceImpl
         orderRepository.save(order);
 
         Long paymentId =
-                paymentService.processPayment(
+                paymentClient.processPayment(
                         order.getId(),
                         order.getAmount());
 
@@ -50,7 +50,7 @@ public class OrderServiceImpl
 
         orderRepository.save(order);
 
-        notificationService.sendNotification(
+        notificationClient.sendNotification(
                 order.getId(),
                 "Order created successfully");
 
