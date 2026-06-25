@@ -1,14 +1,14 @@
 package com.commercesystem.order.service;
 
 import com.commercesystem.common.exception.ResourceNotFoundException;
-import com.commercesystem.notification.client.NotificationClient;
+import com.commercesystem.order.client.NotificationClient;
 import com.commercesystem.notification.entity.NotificationStatus;
 import com.commercesystem.order.dto.CreateOrderRequest;
 import com.commercesystem.order.dto.CreateOrderResponse;
 import com.commercesystem.order.entity.Order;
 import com.commercesystem.order.entity.OrderStatus;
 import com.commercesystem.order.repository.OrderRepository;
-import com.commercesystem.payment.client.PaymentClient;
+import com.commercesystem.order.client.PaymentClient;
 import com.commercesystem.payment.entity.PaymentStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

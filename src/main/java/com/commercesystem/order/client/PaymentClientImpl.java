@@ -1,4 +1,4 @@
-package com.commercesystem.payment.client;
+package com.commercesystem.order.client;
 
 import com.commercesystem.payment.service.PaymentService;
 import lombok.RequiredArgsConstructor;

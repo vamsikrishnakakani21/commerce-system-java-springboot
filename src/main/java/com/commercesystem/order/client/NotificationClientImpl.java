@@ -1,4 +1,4 @@
-package com.commercesystem.notification.client;
+package com.commercesystem.order.client;
 
 import com.commercesystem.notification.service.NotificationService;
 import lombok.RequiredArgsConstructor;

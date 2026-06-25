@@ -1,4 +1,4 @@
-package com.commercesystem.payment.client;
+package com.commercesystem.order.client;
 
 import java.math.BigDecimal;
 
