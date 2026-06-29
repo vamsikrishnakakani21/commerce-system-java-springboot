@@ -5,4 +5,6 @@ public interface NotificationService {
     void sendNotification(
             Long orderId,
             String message);
+
+    void retryFailedNotifications();
 }

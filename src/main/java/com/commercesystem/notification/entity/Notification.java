@@ -25,4 +25,8 @@ public class Notification extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private NotificationStatus status;
+
+    private Integer retryCount;
+
+    private String failureReason;
 }
